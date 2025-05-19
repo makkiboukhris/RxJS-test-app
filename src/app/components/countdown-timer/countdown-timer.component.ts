@@ -1,6 +1,6 @@
 import { NgIf } from '@angular/common';
 import { Component } from '@angular/core';
-import { interval, map, Observable, takeWhile } from 'rxjs';
+import { interval, map, takeWhile } from 'rxjs';
 import { RocketStatusService } from '../../services/rocket-status.service';
 
 @Component({
@@ -33,6 +33,8 @@ export class CountdownTimerComponent {
     })
   }
   stopRocket() {
+    this.countDownCompleted = false;
+    this.countDownStart = 10;
     this.rocketStatusService.stopRocket()
   }
 }

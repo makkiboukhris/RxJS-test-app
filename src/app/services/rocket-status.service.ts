@@ -38,10 +38,10 @@ export class RocketStatusService {
     const newVelocity = Math.min(this.maxVelocity, this.previousData.velocity + velocityIncrement * dt);
 
     // Smooth altitude increase
-    const newAltitude = Math.min(this.maxAltitude, this.previousData.altitude + (newVelocity * dt) / 10);
+    const newAltitude = Math.min(this.maxAltitude, this.previousData.altitude + (newVelocity * dt));
 
     // Smooth fuel burn — proportional to velocity
-    const burnRate = 10 + newVelocity * 0.3;
+    const burnRate = 10 + newVelocity * 20;
     const newFuel = Math.max(0, this.previousData.fuel - burnRate * dt);
 
     // Smooth temperature change based on velocity
@@ -94,9 +94,6 @@ export class RocketStatusService {
   startLaunch(): void {
     this.rocketLaunched = true;
     this.trigger.next();
-  }
-  getRocketLaunched(): boolean {
-    return this.rocketLaunched;
   }
   stopRocket(): void {
     this.rocketLaunched = false;
