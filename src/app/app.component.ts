@@ -7,7 +7,7 @@ import { SideDisplayComponent } from "./side-display/side-display.component";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, HeaderComponent, MainDisplayComponent, SideDisplayComponent],
+  imports: [HeaderComponent, MainDisplayComponent, SideDisplayComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

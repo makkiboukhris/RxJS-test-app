@@ -41,7 +41,7 @@ export class RocketStatusService {
     const newAltitude = Math.min(this.maxAltitude, this.previousData.altitude + (newVelocity * dt));
 
     // Smooth fuel burn — proportional to velocity
-    const burnRate = 10 + newVelocity * 20;
+    const burnRate = 10 + newVelocity * 4;
     const newFuel = Math.max(0, this.previousData.fuel - burnRate * dt);
 
     // Smooth temperature change based on velocity

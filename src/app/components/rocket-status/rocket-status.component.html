@@ -2,7 +2,7 @@
     <p class="text-4xl">rocket status: </p>
     <p class="text-2xl" *ngIf="launched">rocket launched</p>
     <p class="text-2xl" *ngIf="!launched">rocket on the ground</p>
-    <div class="flex gap-8 my-6">
+    <div class="flex gap-8 my-6 items-center">
         <div class="text-2xl">
             <h2>altitude:</h2>
             <h2>{{rocketStatus.altitude}} m</h2>
@@ -15,7 +15,7 @@
             [minValue]="-150" [warningLowerThreshold]="-80" [warningThreshold]="2300" [dangerThreshold]="2700"
             [dangerLowerThreshold]="-130"></app-progress-bar>
         <app-progress-bar label="fuel" [currentValue]="rocketStatus.fuel  || 0 " [maxValue]="500000" [minValue]="0"
-            [warningLowerThreshold]="10000" [warningThreshold]="500001" [dangerThreshold]="500001"
-            [dangerLowerThreshold]="1000"></app-progress-bar>
+            [warningLowerThreshold]="150000" [warningThreshold]="500001" [dangerThreshold]="500001"
+            [dangerLowerThreshold]="70000"></app-progress-bar>
     </div>
 </div>
