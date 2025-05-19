@@ -1,0 +1,38 @@
+<!-- <div>
+    <p class="text-4xl">rocket status: </p>
+    <div class="flex gap-8 my-6">
+        <div class="text-2xl">
+            <h2>altitude:</h2>
+            <h2>{{(rocketStatus$ | async)?.altitude}} m</h2>
+        </div>
+        <div class="text-2xl">
+            <h2>velocity:</h2>
+            <h2>{{(rocketStatus$ | async)?.velocity}} m/s</h2>
+        </div>
+        <app-progress-bar label="temperature" [currentValue]="(rocketStatus$ | async)?.temperature || 0"
+            [maxValue]="3000" [minValue]="-150" [warningLowerThreshold]="-80" [warningThreshold]="2300"
+            [dangerThreshold]="2700" [dangerLowerThreshold]="-130"></app-progress-bar>
+        <app-progress-bar label="fuel" [currentValue]="(rocketStatus$ | async)?.fuel  || 0 " [maxValue]="500000"
+            [minValue]="0" [warningLowerThreshold]="10000" [warningThreshold]="500000" [dangerThreshold]="500000"
+            [dangerLowerThreshold]="1000"></app-progress-bar>
+    </div>
+</div> -->
+<div>
+    <p class="text-4xl">rocket status: </p>
+    <div class="flex gap-8 my-6">
+        <div class="text-2xl">
+            <h2>altitude:</h2>
+            <h2>{{rocketStatus.altitude}} m</h2>
+        </div>
+        <div class="text-2xl">
+            <h2>velocity:</h2>
+            <h2>{{rocketStatus.velocity}} m/s</h2>
+        </div>
+        <app-progress-bar label="temperature" [currentValue]="rocketStatus.temperature || 0" [maxValue]="3000"
+            [minValue]="-150" [warningLowerThreshold]="-80" [warningThreshold]="2300" [dangerThreshold]="2700"
+            [dangerLowerThreshold]="-130"></app-progress-bar>
+        <app-progress-bar label="fuel" [currentValue]="rocketStatus.fuel  || 0 " [maxValue]="500000" [minValue]="0"
+            [warningLowerThreshold]="10000" [warningThreshold]="500001" [dangerThreshold]="500001"
+            [dangerLowerThreshold]="1000"></app-progress-bar>
+    </div>
+</div>

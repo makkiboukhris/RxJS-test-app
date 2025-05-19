@@ -1,6 +1,7 @@
 import { NgIf } from '@angular/common';
 import { Component } from '@angular/core';
-import { interval, map, takeWhile } from 'rxjs';
+import { interval, map, Observable, takeWhile } from 'rxjs';
+import { RocketStatusService } from '../../services/rocket-status.service';
 
 @Component({
   selector: 'app-countdown-timer',
@@ -10,6 +11,8 @@ import { interval, map, takeWhile } from 'rxjs';
   styleUrl: './countdown-timer.component.css'
 })
 export class CountdownTimerComponent {
+  constructor(private rocketStatusService: RocketStatusService) { }
+
   countDownStart = 10;
   countDownCompleted = false
   private numbers = interval(1000);
@@ -21,10 +24,15 @@ export class CountdownTimerComponent {
   launchCountDown() {
     this.countDownObservable.subscribe({
       next: (time) => {
-        console.log(time);
         this.countDownStart = 10 - time;
       },
-      complete: () => this.countDownCompleted = true
+      complete: () => {
+        this.countDownCompleted = true;
+        this.rocketStatusService.startLaunch();
+      }
     })
+  }
+  stopRocket() {
+    this.rocketStatusService.stopRocket()
   }
 }

@@ -1,0 +1,17 @@
+<div class="flex flex-col items-center justify-center space-y-2">
+    <div class="relative w-38 h-38">
+        <svg class="w-full h-full transform -rotate-90" viewBox="0 0 120 120">
+            <!-- Background circle -->
+            <circle cx="60" cy="60" r="48" fill="none" stroke="#e5e7eb" stroke-width="12" />
+            <!-- Progress circle -->
+            <circle cx="60" cy="60" r="48" fill="none" [attr.stroke]="progressColor" stroke-width="12"
+                stroke-linecap="round" [attr.stroke-dasharray]="circumference"
+                [attr.stroke-dashoffset]="strokeDashoffset" class="transition-all duration-500 ease-out" />
+        </svg>
+        <!-- Value in center -->
+        <div class="absolute inset-0 flex flex-col items-center justify-center">
+            <span class="text-xl font-bold text-gray-800">{{ currentValue }}</span>
+        </div>
+    </div>
+    <div class="text-sm font-medium text-gray-700">{{ label }}</div>
+</div>
